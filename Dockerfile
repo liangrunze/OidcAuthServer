@@ -8,8 +8,6 @@ WORKDIR /OidcAuthServer
 
 RUN dotnet publish ./OidcAuthServer/OidcAuthServer.csproj --output /publish
 
-
-
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 
 COPY --from=builder /publish /app
@@ -23,7 +21,7 @@ EXPOSE 443
 ENV ASPNETCORE_ENVIRONMENT=Production
 
 # To enable https, you need to configure the certificate address and password
-ENV ENABLE_SSL=True 
+ENV ENABLE_SSL=false 
 
 COPY ./certificate /app/certificate
 

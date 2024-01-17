@@ -1,0 +1,17 @@
+serverAddr = "127.0.0.1"
+serverPort = 7000
+
+# frpc.toml
+auth.method = "oidc"
+auth.oidc.clientID = "B90B1793-332A-49E4-8658-5A71503046B8" # Replace with OIDC client ID
+auth.oidc.clientSecret = "c4ba5449-b604-49e1-9c8d-b3adb73cf566"
+auth.oidc.audience = "api"
+auth.oidc.scope ="api-1"
+auth.oidc.tokenEndpointURL = "http://localhost/connect/token"
+
+[[proxies]]
+name = "test-tcp"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 80
+remotePort = 6001

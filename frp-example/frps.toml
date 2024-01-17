@@ -1,0 +1,8 @@
+bindPort = 7000
+
+# frps.toml
+auth.method = "oidc"
+auth.oidc.issuer = "http://127.0.0.1"
+auth.oidc.audience = "api"
+auth.oidc.skipExpiryCheck = false
+auth.oidc.skipIssuerCheck = false
