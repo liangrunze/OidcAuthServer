@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "OidcAuthServer": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+        //"ASPNETCORE_URLS": "https://localhost:8083"
+      },
+      "applicationUrl": "https://localhost:8082;http://localhost:8081"
+    }
+  }
+}
