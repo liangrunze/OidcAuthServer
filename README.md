@@ -50,7 +50,7 @@ You can use the following command to run your application:
 ```bash
 dotnet run
 ```
-Then, you can visit http://ip/ in your browser to view your application. Visit http://ip/.well-known/openid-configuration to view the oidc configuration information.
+Then, you can  Visit http://ip/.well-known/openid-configuration to view the oidc configuration information.
 
 ### Environment Variables
 To listen to https, you need to add the environment variable ENABLE_SSL, and copy the certificate folder to the service running directory (the self-generated certificate and key are provided in the file, not recommended for formal environment), at this time the service will listen to ports 443 and 80.
@@ -76,7 +76,7 @@ Quickly start an oidc service
 ```bash
 docker run --restart=always -p 80:80  -d  --name oidc-server oidc-server:1.0.0
 ```
-You can view your app by visiting http://ip/ in your browser. Visit http://ip/.well-known/openid-configuration for oidc configuration information.
+You can view your app by visiting   http://ip/.well-known/openid-configuration for oidc configuration information.
 
 ### Custom configuration
 Create a file appsettings.json, copy and modify the appsettings.json file in the warehouse

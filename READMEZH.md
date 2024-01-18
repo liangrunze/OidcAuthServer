@@ -50,7 +50,7 @@ dotnet build
 ```bash
 dotnet run
 ```
-然后，你可以在浏览器中访问 http://ip/ 来查看你的应用。访问 http://ip/.well-known/openid-configuration来查看oidc的配置信息
+然后，访问 http://ip/.well-known/openid-configuration来查看oidc的配置信息
 
 ### 环境变量
 监听https需添加环境变量ENABLE_SSL，并且将certificate文件夹拷贝至服务运行目录（文件中提供了自生成证书和密钥，不推荐用于正式环境），此时服务会监听443和80端口
@@ -77,7 +77,7 @@ docker build -t oidc-server:1.0.0 .
 ```bash
 docker run --restart=always -p 80:80  -d  --name oidc-server oidc-server:1.0.0
 ```
-你可以在浏览器中访问 http://ip/ 来查看你的应用。访问 http://ip/.well-known/openid-configuration来查看oidc的配置信息。
+你可以在浏览器中访问 http://ip/.well-known/openid-configuration来查看oidc的配置信息。
 
 ### 自定义配置
 新建文件 appsettings.json，将仓库中的appsettings.json文件拷贝并修改

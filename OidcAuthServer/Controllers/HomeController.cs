@@ -21,24 +21,27 @@ namespace ServerSite.Controllers
             string authority = new Uri(this.Request.GetDisplayUrl())
                 .GetLeftPart(UriPartial.Authority);
 
-            var dictionary = new Dictionary<string, object>
+            if (_environment.IsDevelopment())
             {
-                ["oidc_discovery_url"] = authority + "/.well-known/openid-configuration",
-            };
-            if(_environment.IsDevelopment())
-            {
-                dictionary.Add("debug", new Dictionary<string, string>
+                var dictionary = new Dictionary<string, object>
                 {
-                    ["client"] = this.Url.Link("debug.client.get", null),
-                    ["user"] = this.Url.Link("debug.user.get", null),
-                    ["user_claim"] = this.Url.Link("debug.user_claim.get", null),
-                    ["api_scope"] = this.Url.Link("debug.api_scope.get", null),
-                    ["api_resource"] = this.Url.Link("debug.api_resource.get", null),
-                    ["identity_resource"] = this.Url.Link("debug.identity_resource.get", null)
-                });
+                    ["oidc_discovery_url"] = authority + "/.well-known/openid-configuration",
+                    ["debug"] = new Dictionary<string, string>
+                    {
+                        ["client"] = this.Url.Link("debug.client.get", null),
+                        ["user"] = this.Url.Link("debug.user.get", null),
+                        ["user_claim"] = this.Url.Link("debug.user_claim.get", null),
+                        ["api_scope"] = this.Url.Link("debug.api_scope.get", null),
+                        ["api_resource"] = this.Url.Link("debug.api_resource.get", null),
+                        ["identity_resource"] = this.Url.Link("debug.identity_resource.get", null)
+                    }
+                };
+                return Json(dictionary);
             }
-       
-            return Json(dictionary);
+            else
+            {
+                return Ok();
+            }
         }
     }
 }
